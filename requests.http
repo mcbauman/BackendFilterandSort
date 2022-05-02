@@ -1,0 +1,80 @@
+@url = http://localhost:7000
+
+###########################################################
+# QUESTIONS ###############################################
+###########################################################
+
+### Get all questions
+GET {{url}}/questions
+
+### Get all questions that match the parameters
+GET {{url}}/questions?author=Joel&type=internal
+
+### Get a question with an specific ID
+GET {{url}}/questions/62690d519b74d8f92e21faaa
+
+### Create a new question
+POST {{url}}/questions
+Content-Type: application/json
+
+{
+    "author": "626a55f71f23d50b8883c8f5",
+    "title": "Can we get a snake?",
+    "content": "I want a snake",
+    "type": "internal"
+}
+
+### Delete a specific question
+DELETE {{url}}/questions/626a5f46236107ba6cb695a3
+
+### Update a specific question, changing the title
+PATCH {{url}}/questions/626a56021f23d50b8883c8f8
+Content-Type: application/json
+
+{
+    "title": "Am I doggo?"
+}
+
+###########################################################
+# USERS ###################################################
+###########################################################
+
+### Get all Users
+GET {{url}}/users
+
+### Create a new user
+POST {{url}}/users
+Content-Type: application/json
+
+{
+    "username": "admin",
+    "email": "joel@example.org",
+    "mainAddress": {
+        "country": "Germany",
+        "city": "Bremen",
+        "zip": 4229
+    }
+}
+
+### Delete a specific user
+DELETE {{url}}/users/626a4db25a4a3473171dbc28
+
+###########################################################
+# ANSWERS #################################################
+###########################################################
+
+### Get all answers
+GET {{url}}/answers
+
+### Create a new answer
+POST {{url}}/answers
+Content-Type: application/json
+
+{
+    "author": "626a55f71f23d50b8883c8f5",
+    "question": "626a56021f23d50b8883c8f8",
+    "content": "Yes, yes you are."
+}
+
+### Delete a specific answer
+DELETE {{url}}/answers/626a9b40226ad1da1b63c5ff
